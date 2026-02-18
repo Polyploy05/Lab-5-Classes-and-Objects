@@ -14,7 +14,7 @@ import random
 
 class Question:
     def __init__ (self,state):
-
+        """Initializes a Question objectusing the dictionary of state:capital pairs."""
 
         pass
 
@@ -24,19 +24,27 @@ class Question:
 
 
 
-    @property
+
     def possible_choices(self):
+        """Returns the list of possible choices for the question."""
         return self._possible_choices
-    
+            
+        
+    def check_correct(self, user_choice):
+        """Checks whether the user's choice is correct and returns True or False."""
+        pass
+
+    def incorrect_response(self):
+        """Returns a formattted string to be printed when the user answers incorrectly."""
+        pass
     def correct_response(self):
+        """Returns a formattted string to be printed when the user answers correctly."""
         pass
 
 
 
     def __str__(self):
-
+        """Rturn the question text + the possible choices as a formatted string."""
 
         pass
-
-
 
