@@ -41,7 +41,7 @@ def ask_questions(number, states):
     q = Question.Question(states)
     print(q)
 
-    user_choice = get_user_choice(q.possible_choices)
+    user_choice = get_user_choice(q.possible_choices())
 
     if q.check_correct(user_choice):
         print(q.correct_response())
@@ -68,6 +68,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
