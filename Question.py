@@ -49,15 +49,15 @@ class Question:
 
 
     
-    def correct_response(self):
-        pass
+        def correct_response(self):
+                pass
 
+        def incorrect_response(self):
+                pass
 
+        def __str__(self):
+                pass
 
-    def __str__(self):
-
-
-        pass
 
 
 
