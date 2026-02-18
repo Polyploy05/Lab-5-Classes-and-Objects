@@ -14,24 +14,19 @@ import random
 
 class Question:
 
-        def __init__ (self,state):
-        #Opens the file and creates a dictionary of state-capital pairs
-        with open("statecapitals.txt", 'r') as f:
-            capitals = {}
-            for line in f:
-                row = line.rstrip('\n').split(',')
-                if row and len(row) >= 2:
-                    capitals[row[0]] = row[1]
+    def __init__ (self,states):
         #Sets the state to what is provided, then finds the correct capital
-        self._state = state
-        self._correct_capital = capitals[state]
+        num = random.randint(0, len(states)-1)
+
+        self._state = list(states.keys())[num]
+        self._correct_capital = states.get(self._state)
         self._possible_choices = ["A", "B", "C", "D"]
 
         #Creates the first answer as the correct capital, then adds random capitals 
         #until there are 4 answers, and shuffles them
         self._answers = [self._correct_capital]
         while len(self._answers) < 4:
-            random_capital = random.choice(list(capitals.values()))
+            random_capital = random.choice(list(states.values()))
             if random_capital not in self._answers:
                 self._answers.append(random_capital)
         random.shuffle(self._answers)
@@ -57,6 +52,7 @@ class Question:
 
         def __str__(self):
                 pass
+
 
 
 
