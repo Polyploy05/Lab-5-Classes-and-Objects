@@ -24,7 +24,7 @@ class Question:
 
 
 
-
+    @property
     def possible_choices(self):
         return self._possible_choices
     
@@ -37,5 +37,6 @@ class Question:
 
 
         pass
+
 
 
