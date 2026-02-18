@@ -52,22 +52,28 @@ def ask_questions(number, states):
     
 
 def main():
+    # Displays the quiz header
     print("Welcome to the State Capitals Quiz")
 
+    #Reads the state-capital pairs from the file into a dictionary
     states = read_file_to_dictionary("statecapitals")
 
+    #Keeps track of the user's total score
     score = 0
+
+    #Asks the 10 questions, 1-10
     for i in range(1,11):
         print()
         score += ask_questions(i, states)
 
-
+    #After all the questions are complete, shows the final score
     print("\nQuiz complete")
     print(f"You scored {score} out of 10.")
 
 
 if __name__ == "__main__":
     main()
+
 
 
 
