@@ -24,7 +24,7 @@ def read_file_to_dictionary(statecapitals):
 
 
 def get_user_choice(valid_options):
-    #Repeatedly prompt until the user enters a valid choice (A–D).
+    #Repeatedly prompts and checks until the user enters a valid choice (A–D).
     valid = False
   while not valid:
     val = input(prompt).upper()
@@ -73,6 +73,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
