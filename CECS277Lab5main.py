@@ -7,9 +7,9 @@ Description:
 
 
 
-from question import Question
+import Question
 
-def read_file_to_dictionary(statecapitals.txt):
+def read_file_to_dictionary(statecapitals):
     
     states = {}
     with open(statecapitals, "r") as file:
@@ -65,4 +65,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
