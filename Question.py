@@ -2,14 +2,26 @@
 Names: Jacob Miranda & Daniel Puerto
 Date: 2/17/2626
 Group: 7
-Description: 
+Description: A class that creates a question by picking a random state from the provided dictionary and saving it 
+alongside it's coresponding capital. It then adds 3 more possible capital choices, shuffles them all, and 
+sets each capital to a dictionary list and letter value A-D. Has functions to return all possible choices,
+check for the correct choice, and read out a standard correct or incorrect responce. Object-to-string prints
+out the whole question with every possible answer
 '''
-import random
 
+import random
 
 class Question:
 
-
+    '''Creates a question for use with the quiz code. 
+    Attributes: 
+    _state (str): The state to be used for the question
+    _correct_capital (str): The capital corresponding to the chosen state
+    _possible_choices (Str list): All possible inputs A-D
+    _selections (Str list): All the capitals that correspond to each possible input. Includes the correct
+    capital and 3 incorrect ones. All 4 are unique from one another
+    _answer (str): The input corresponding to the correct capital
+    '''
     def __init__ (self,states):
         #Sets the state to what is provided, then finds the correct capital
         num = random.randint(0, len(states)-1)
@@ -36,6 +48,7 @@ class Question:
         
 
     def check_correct(self, user_choice):
+        #Checks and return whether the user's choice is correct by comparing it to the correct answer
         return user_choice == self._answer
 
     def possible_choices(self):
@@ -50,12 +63,11 @@ class Question:
 
 
     def __str__(self):
+        #Lists the question and all possible answers, with each answer being a new line
         output = f"The capital of {self._state} is: \n"
         for key, value in self._selections.items():
             output += f"{value}. {key}\n"
         return output
-
-
 
 
 
