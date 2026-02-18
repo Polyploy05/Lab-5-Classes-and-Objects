@@ -13,7 +13,7 @@ should loop 10 times, asking a question each time, and then record and display t
 import Question
 
 def read_file_to_dictionary(statecapitals):
-    
+    """Reads staes,capital pairs from the file into a dictionary and returns it."""
     states = {}
     with open(statecapitals, "r") as file:
         for line in file:
@@ -25,7 +25,7 @@ def read_file_to_dictionary(statecapitals):
 
 
 def get_user_choice(valid_options):
-    
+    """Prompts the user until they enter a valid option (A-D)."""
     choice = input("Enter choice: "). upper()
 
     while choice not in valid_options:
@@ -36,7 +36,7 @@ def get_user_choice(valid_options):
 
 
 def ask_questions(number, states):
-
+    """Creates a Question, pompots it, checks whether the answer is corect and returns it as a 1 (correct) or 0 (incorrect)."""
     print(f"{number}.", end="")
 
     q = Question(states)
