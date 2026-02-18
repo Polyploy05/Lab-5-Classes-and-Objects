@@ -15,12 +15,11 @@ import Question
 def read_file_to_dictionary(statecapitals):
     """Reads staes,capital pairs from the file into a dictionary and returns it."""
     states = {}
-    with open(statecapitals, "r") as file:
-        for line in file:
-            line = line.strip()
-            if line:
-                state,capital = line.split(",")
-                state[state] = capital
+    with open("statecapitals.txt", 'r') as f:
+        for line in f:
+            row = line.rstrip('\n').split(',')
+            if row and len(row) >= 2:
+                states[row[0]] = row[1]
     return states
 
 
@@ -69,3 +68,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
