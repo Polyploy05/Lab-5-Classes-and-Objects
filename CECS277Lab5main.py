@@ -38,7 +38,7 @@ def ask_questions(number, states):
     """Creates a Question, pompots it, checks whether the answer is corect and returns it as a 1 (correct) or 0 (incorrect)."""
     print(f"{number}.", end="")
 
-    q = Question(states)
+    q = Question.Question(states)
     print(q)
 
     user_choice = get_user_choice(q.possible_choices)
@@ -68,4 +68,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
