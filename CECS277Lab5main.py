@@ -24,14 +24,15 @@ def read_file_to_dictionary(statecapitals):
 
 
 def get_user_choice(valid_options):
-    """Prompts the user until they enter a valid option (A-D)."""
-    choice = input("Enter choice: "). upper()
-
-    while choice not in valid_options:
-        print(f"Invalid input. Enter {valid_options[0]} - {valid_options[-1]}.")
+    """Repeatedly prompt until the user enters a valid choice (A–D)."""
+    valid = False
+    while not valid:
         choice = input("Enter choice: ").upper()
 
-    return choice
+        if choice in valid_options:
+            return choice
+        else:
+            print(f"Invalid input - enter {valid_options[0]}–{valid_options[-1]}.")
 
 
 def ask_questions(number, states):
@@ -68,5 +69,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
