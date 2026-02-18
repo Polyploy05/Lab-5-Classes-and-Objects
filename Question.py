@@ -7,12 +7,11 @@ user on the capitals of 10 randomly selected states. The user should be given 4 
 answers for each question, and the program should keep track of the user's score. The main file 
 should loop 10 times, asking a question each time, and then record and display the user's final score at the end.
 '''
-
-
-
 import random
 
+
 class Question:
+
 
     def __init__ (self,states):
         #Sets the state to what is provided, then finds the correct capital
@@ -39,19 +38,26 @@ class Question:
         self._answer = self._selections.get(self._correct_capital)
         
 
+    def check_correct(self, user_choice):
+        return user_choice == self._answer
 
-
-
+    def possible_choices(self):
+        return self._possible_choices
 
     
-        def correct_response(self):
-                pass
+    def correct_response(self):
+        return f"Correct! The capital of {self._state} is {self._correct_capital}."
 
-        def incorrect_response(self):
-                pass
+    def incorrect_response(self):
+        return f"Incorrect. The capital of {self._state} is {self._correct_capital}."
 
-        def __str__(self):
-                pass
+
+    def __str__(self):
+        output = f"The capital of {self._state} is: \n"
+        for key, value in self._selections.items():
+            output += f"{value}. {key}\n"
+        return output
+
 
 
 
