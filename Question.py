@@ -13,38 +13,52 @@ should loop 10 times, asking a question each time, and then record and display t
 import random
 
 class Question:
-    def __init__ (self,state):
-        """Initializes a Question objectusing the dictionary of state:capital pairs."""
 
-        pass
+        def __init__ (self,state):
+        #Opens the file and creates a dictionary of state-capital pairs
+        with open("statecapitals.txt", 'r') as f:
+            capitals = {}
+            for line in f:
+                row = line.rstrip('\n').split(',')
+                if row and len(row) >= 2:
+                    capitals[row[0]] = row[1]
+        #Sets the state to what is provided, then finds the correct capital
+        self._state = state
+        self._correct_capital = capitals[state]
+        self._possible_choices = ["A", "B", "C", "D"]
 
+        #Creates the first answer as the correct capital, then adds random capitals 
+        #until there are 4 answers, and shuffles them
+        self._answers = [self._correct_capital]
+        while len(self._answers) < 4:
+            random_capital = random.choice(list(capitals.values()))
+            if random_capital not in self._answers:
+                self._answers.append(random_capital)
+        random.shuffle(self._answers)
 
-
-
-
-
-
-
-    def possible_choices(self):
-        """Returns the list of possible choices for the question."""
-        return self._possible_choices
-            
+        #Combines the possible choices and answers into a dictionary for easy access
+        self._selections = {}
+        for i in range(len(self._answers)):
+            self._selections[self._answers[i]] = self._possible_choices[i]
         
-    def check_correct(self, user_choice):
-        """Checks whether the user's choice is correct and returns True or False."""
-        pass
+        self._answer = self._selections.get(self._correct_capital)
+        
 
-    def incorrect_response(self):
-        """Returns a formattted string to be printed when the user answers incorrectly."""
-        pass
+
+
+
+
+    
     def correct_response(self):
-        """Returns a formattted string to be printed when the user answers correctly."""
         pass
 
 
 
     def __str__(self):
-        """Rturn the question text + the possible choices as a formatted string."""
+
 
         pass
+
+
+
 
